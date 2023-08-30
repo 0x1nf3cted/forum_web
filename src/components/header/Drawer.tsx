@@ -1,11 +1,11 @@
 import React, { Children } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link,useNavigate } from 'react-router-dom'
-import { closeHamburger, openHamburger } from '../features/commonstate'
+import {  isOpen, toggleHamburger } from '../features/commonSlice'
 import BlackBtn from '../resuable/BlackBtn'
 
 const Drawer = (props:any) => {
-    let {isHamburger} = useSelector((state:any)=>state.commonState)
+    let isHamburger = useSelector(isOpen)
     let dispatch = useDispatch()
     const navigate = useNavigate()
     
@@ -37,7 +37,7 @@ const Drawer = (props:any) => {
             <Link
               to={`${link.location}`}
               className="capitalize"
-              onClick={() => dispatch(closeHamburger("flip"))}
+              onClick={() => dispatch(toggleHamburger())}
             >
               {link.name}
             </Link>
@@ -48,7 +48,7 @@ const Drawer = (props:any) => {
   return (
     <div className={`fixed z-[10] bg-[#fff] transition-transform top-0 min-h-screen right-1  w-full p-4 ${isHamburger? '':'-translate-x-full'}`}>
         <div>
-        <i onClick={()=>dispatch(openHamburger('flip'))} className="fa-solid fa-xmark font-[600] text-3xl"></i>
+        <i onClick={()=>dispatch(toggleHamburger())} className="fa-solid fa-xmark font-[600] text-3xl"></i>
         </div>
         <nav className='list-none text-3xl h-[60vh] justify-evenly flex flex-col z-[10]'>
         { localStorage.getItem("con")? displayList : props.links}
@@ -59,7 +59,7 @@ const Drawer = (props:any) => {
           localStorage.getItem("con") ?
           <div onClick={()=>{
             // localStorage.clear()
-            dispatch(openHamburger('flip'))
+            dispatch(toggleHamburger())
             localStorage.clear()
             navigate("/signin")
           }} >

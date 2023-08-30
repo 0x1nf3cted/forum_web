@@ -13,7 +13,7 @@ import AboutUs from "./components/pages/about/AboutUs";
 import PageNotFound from "./components/pages/notfound/PageNotFound";
 import Footer from "./components/footer/Footer";
 import Profile from "./components/pages/user/Profile";
-import Settings from "./components/pages/settings/Settings";
+// import Settings from "./components/pages/settings/Settings";
 import RequireAuth from "./components/pages/auth/RequireAuth";
 import Articles from "./components/pages/user/Articles";
 import Socials from "./components/pages/user/Socials";
@@ -32,7 +32,7 @@ function App() {
           <Route path="/user"  element={<Profile />} />
           <Route path="/articles"  element={<Articles />} />
           <Route path="/my-socials"  element={<Socials />} />
-          <Route path="/settings"  element={<Settings />} />
+          {/* <Route path="/settings"  element={<Settings />} /> */}
           </Route>
         </Route>
         <Route element={<WithoutNav />}>

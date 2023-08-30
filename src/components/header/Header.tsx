@@ -1,14 +1,14 @@
 import React, { Children } from "react";
 import Drawer from "./Drawer";
-import { closeHamburger, openHamburger } from "../features/commonstate";
+import {  toggleHamburger } from "../features/commonSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import GreenBtn from "../resuable/GreenBtn";
 import header from '../../images/header.svg'
 const Header = () => {
   let dispatch = useDispatch();
-  const user = useSelector((state: any) => state.user);
-  console.log(user);
+  // const user = useSelector((state: any) => state.user);
+  // console.log(user);
   
   let links = [
     {
@@ -36,7 +36,7 @@ const Header = () => {
           <Link
             to={`${link.location}`}
             className="capitalize"
-            onClick={() => dispatch(closeHamburger("flip"))}
+            onClick={() => dispatch(toggleHamburger())}
           >
             {link.name}
           </Link>
@@ -49,7 +49,7 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center p-2 px-4">
       <span
-        onClick={() => dispatch(openHamburger("flip"))}
+        onClick={() => dispatch(toggleHamburger())}
         className="fa-solid fa-bars text-2xl mr-4 cursor-pointer md:hidden"
       ></span>
       <Link to={"/"}>

@@ -10,6 +10,8 @@ interface User {
   verified?: boolean | null;
   muted?: boolean | null;
   lastLogin: Date;
+  followers: User[];
+  following: User[]
   pfp?: string | null;
   bio?: string | null;
   socialLinks?: string[];

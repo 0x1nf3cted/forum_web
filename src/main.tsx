@@ -4,7 +4,6 @@ import App from './App'
 import './index.css'
 import { store } from './store'
 import { Provider } from 'react-redux'
-import commonReducer from './components/features/commonstate'
 import { BrowserRouter } from "react-router-dom";
 
 

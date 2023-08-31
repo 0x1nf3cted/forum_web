@@ -220,8 +220,7 @@ export default function EmailLogin() {
         setCredentials({
           access_token: userData.access_token,
           refresh_token: userData.refresh_token,
-          email: email,
-        })
+         })
       );
       setEmail("");
       setPassword("");

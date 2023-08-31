@@ -10,17 +10,19 @@ import Tag from "../../resuable/Tag";
 import { useDispatch, useSelector } from "react-redux";
 import Socials from "./Socials";
 import { useGetUsersQuery } from "../../features/users/usersApiSlice";
-import { User } from "../../../Interfaces/Interface";
+import { User } from "../../../data";
 
 export default function Info() {
   const [userInfo, setUserInfo] = useState<User>();
-  const {
+   const {
     data: users,
     isLoading,
     isSuccess,
     isError,
     error,
   } = useGetUsersQuery({});
+  console.log(userInfo);
+
   useEffect(() => {
     setUserInfo(users);
     console.log(userInfo);
@@ -62,7 +64,7 @@ export default function Info() {
       <div className="introduction">
         <div className="stat flex flex-row justify-center gap-4 my-4">
           <p className="follower text-sm text-gray-500">
-            {userInfo?.Thread?.length} artciles
+            {userInfo?.threads?.length} artciles
           </p>
           <p className="follower text-sm text-gray-500">
             {userInfo?.followers?.length} follower
